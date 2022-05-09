@@ -142,9 +142,9 @@
                         <li>
                             <a href="<?php echo base_url() ?>" class="act-link">Halaman Utama</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url('main/futsal') ?>">Tentang Website</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?php echo base_url('main/about') ?>">Tentang Kami</a>
                         </li>

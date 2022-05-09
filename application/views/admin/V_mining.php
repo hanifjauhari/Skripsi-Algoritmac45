@@ -31,14 +31,11 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Usia</th>
-                            <th>Sekolah</th>
-                            <th>Jawaban A</th>
-                            <th>Jawaban B</th>
-                            <th>Jawaban C</th>
-                            <th>Jawaban D</th>
-                            <th>Kelas Asli</th>
+                            <th>Pekerjaan</th>
+                            <th>Penghasilan/th>
+                            <th>Pengeluaran</th>
+                            <th>Jumlah Tanggungan</th>
+                            <th>Label</th>
                         </tr>
 
                     </table>

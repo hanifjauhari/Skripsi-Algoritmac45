@@ -56,7 +56,7 @@
                                     <span class="section-separator fl-sec-sep"></span>
                                 </div>
                                 <p>Hanif Jauhari merupakan seorang mahasiswa Manajemen Informatika di Politeknik Negeri Malang yang kerap disapa JO,
-                                    dia adalah seorang atlet futsal Kota Malang yang memiliki tim di sebuah gor yakni Unggul FC. Tak hanya dibidang futsal, Febrian pun juga mahir dalam bidang olahraga lain seperti basket, voli, bulu tangkis, dan lain - lain.</p>
+                                    dia adalah orang yang melakukan maintanance terhadap aplikasi ini </p>
                                 <!-- contact form  end-->
                             </div>
                         </div>
@@ -79,9 +79,9 @@
                                     <div class="box-widget-content bwc-nopad">
                                         <div class="list-author-widget-contacts list-item-widget-contacts bwc-padside">
                                             <ul class="no-list-style">
-                                                <li><span><i class="fal fa-map-marker"></i> Alamat :</span> <a href="#singleMap" class="custom-scroll-link">Jl. Plaosan Timur No. 114b Malang</a></li>
+                                                <li><span><i class="fal fa-map-marker"></i> Alamat :</span> <a href="#singleMap" class="custom-scroll-link"> Gedung Sehati, Jl. Barata Jaya XXII No.20, Baratajaya, Kec. Gubeng, Kota SBY, Jawa Timur 60284</a></li>
                                                 <li><span><i class="fal fa-phone"></i> Telepon :</span> <a href="#">085857287692</a></li>
-                                                <li><span><i class="fal fa-envelope"></i> Email :</span> <a href="#">pratamariza285@gmail.com</a></li>
+                                                <li><span><i class="fal fa-envelope"></i> Email :</span> <a href="#">lmizakatorg@gmail.com</a></li>
                                             </ul>
                                         </div>
 
@@ -101,10 +101,10 @@
                         <div class="col-md-8">
                             <div class="ab_text">
                                 <div class="ab_text-title fl-wrap">
-                                    <h3>Riza Ade Pratama</h3>
+                                    <h3>Lembaga Manajemen Infaq</h3>
                                     <span class="section-separator fl-sec-sep"></span>
                                 </div>
-                                <p>Riza Ade Pratama merupakan seorang mahasiswa Manajemen Informatika di Politeknik Negeri Malang yang kerap disapa Apoy, Riza sendiri merupakan seorang pemain musik solo. Riza kerap manggung di berbagai kampus dan tempat event - event musik lain bersama band - band lain, dia bisa memainkan gitar, bass, drum, dan kini dia sedang mempelajari piano.</p>
+                                <p>Laznas LMI (Lembaga Manajemen Infaq) merupakan Lembaga Amil Zakat skala Nasional yang bertugas menghimpun dana Infaq, Zakat, Wakaf dan Kemanusiaan untuk disalurkan, didistribusikan dan diberdayakan kepada yang membutuhkan sesuai dengan ketentuan yang ada secara proffesional.</p>
                                 <div id="contact-form">
                                     <div id="message"></div>
 

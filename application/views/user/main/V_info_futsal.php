@@ -23,9 +23,9 @@
                     <section   id="sec1" data-scrollax-parent="true">
                         <div class="container">
                             <div class="section-title">
-                                <h2> Komunitas Futsal</h2>
+                                <h2> Lembaga Manajemen Infaq</h2>
                                 <div class="section-subtitle">Malang Raya</div>
-                                <p>Rukun bebarengan, ayo tanding sparing sak malang.</p>
+                                <p>Gedung Sehati, Jl. Barata Jaya XXII No.20, Baratajaya, Kec. Gubeng, Kota SBY, Jawa Timur 60284</p>
                             </div>
                             <!--about-wrap -->
                             <div class="about-wrap">
@@ -38,9 +38,9 @@
                                     <div class="col-md-6">
                                         <div class="ab_text">
                                             
-                                            <p>Aplikasi matchmaking futsal untuk mempermudah mencari lawan tanding sesuai kriteria sekaligus sebagai media komunikasi antar pencinta olahraga futsal se-malang raya, tak perlu khawatir dengan lokasi lawan yang jauh karena aplikasi ini akan merekomendasikan tim futsal yang lokasinya dekat dengan lokasi anda.</p>
+                                            <p>Aplikasi ini mempermudah para pengguna atau pihak lembaga dalam proses seleksi calon mustahik </p>
                                             <p>
-                                            Pada aplikasi ini pengguna dapat mengajukan pertandingan kepada tim futsal lain, setelah pengajuan bertanding sudah disetujui oleh lawan, kedua tim dapat saling komunikasi secara individu di fitur chat yang sudah disediakan oleh sistem untuk menentukan waktu dan lokasi sparing. pengguna juga bisa membuat tim futsal, bergabung dengan tim futsal yang sudah ada, dan mengundang pengguna lain untuk bergabung dengan tim anda.
+                                            Pada aplikasi ini pengguna dapat melakukan penginputan data seperti mustahik ataupun data kriteria kriteria yang menjadi bagian dari proses calon mustahik.
                                             </p>
                                         </div>
                                     </div>
@@ -62,8 +62,8 @@
                     <section id="sec3">
                         <div class="container">
                             <div class="section-title">
-                                <h2>Tim Kami</h2>
-                                <div class="section-subtitle">Komunitas Futsal Malang Raya</div>
+                                <h2>Pembuat Aplikasi</h2>
+                                <div class="section-subtitle">\</div>
                             </div>
                             <div class="about-wrap team-box2 fl-wrap" style="justify-content:center; display: flex">
                                 <!-- team-item -->
@@ -72,26 +72,15 @@
                                         <img src="<?php echo base_url() ?>assets/img/ebi.jpeg" alt="" class="respimg">
                                     </div>
                                     <div class="team-info fl-wrap">
-                                        <h3><a href="#">Febrian Awanda Putra</a></h3>
+                                        <h3><a href="#">Hanif Jauhari</a></h3>
                                         <h4>Mahasiswa Politeknik Negeri Malang</h4>
-                                        <p>Febrian Awanda Putra merupakan seorang mahasiswa Manajemen Informatika di Politeknik Negeri Malang yang kerap disapa Ebi, 
-                                            dia adalah seorang atlet futsal Kota Malang yang memiliki tim di sebuah gor yakni Unggul FC. Tak hanya dibidang futsal, Febrian pun juga mahir dalam bidang olahraga lain seperti basket, voli, bulu tangkis, dan lain - lain.</p>
+                                        <p>Hanif Jauhari merupakan seorang mahasiswa Manajemen Informatika di Politeknik Negeri Malang yang kerap disapa Hanif yang berasal dari kota probolinggo</p>
                                         
                                     </div>
                                 </div>
                                 <!-- team-item  end-->
                                 <!-- team-item -->
-                                <div class="team-box">
-                                    <div class="team-photo">
-                                        <img src="<?php echo base_url() ?>assets/img/riza.jpg" alt="" class="respimg">
-                                    </div>
-                                    <div class="team-info fl-wrap">
-                                        <h3><a href="#">Riza Ade Pratama</a></h3>
-                                        <h4>Mahasiswa Politeknik Negeri Malang</h4>
-                                        <p>Riza Ade Pratama merupakan seorang mahasiswa Manajemen Informatika di Politeknik Negeri Malang yang kerap disapa Apoy, Riza sendiri merupakan seorang pemain musik solo. Riza kerap manggung di berbagai kampus dan tempat event - event musik lain bersama band - band lain, dia bisa memainkan gitar, bass, drum, dan kini dia sedang mempelajari piano.</p>
-                                        
-                                    </div>
-                                </div>
+                                
                                 <!-- team-item end  -->
                             </div>
                         </div>

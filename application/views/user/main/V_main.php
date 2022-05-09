@@ -90,8 +90,7 @@
 								<!-- <div class="listing-counter color2-bg"><span>1 K </span> telah digunakan</div> -->
 								<div class="listing-item-grid_title">
 									<h3><a href="listing.html">Pengguna</a></h3>
-									<p>Beberapa pemain lembaga telah menggunakan fitur ini untuk membantu mencari lawan
-										disekitar</p>
+									<p>Pengguna pada aplikasi ini ialah lembaga manajemen infaq</p>
 								</div>
 							</div>
 						</div>
@@ -104,23 +103,14 @@
 								<div class="d-gr-sec"></div>
 								<!-- <div class="listing-counter color2-bg"><span>22 </span> Tim</div> -->
 								<div class="listing-item-grid_title">
-									<h3><a href="listing.html">Tim lembaga</a></h3>
-									<p>Pemain lembaga yang telah dibuat untuk mendetail lawan</p>
+									<h3><a href="listing.html">Algoritma C4.5</a></h3>
+									<p>Metode yang digunakan dalam proses seleksi</p>
 								</div>
 							</div>
 						</div>
 						<!--  listing-item-grid end  -->
 						<!--  listing-item-grid  -->
-						<div class="col-sm-4">
-							<div class="listing-item-grid">
-								<div class="bg" data-bg="<?php echo base_url('assets/img/background/recommended.jpg') ?>"></div>
-								<div class="d-gr-sec"></div>
-								<div class="listing-item-grid_title">
-									<h3><a href="listing.html">Rekomendasi Lawan</a></h3>
-									<p>Kami memberikan fasilitas pencarian lawan yang terdekat</p>
-								</div>
-							</div>
-						</div>
+						
 						<!--  listing-item-grid end  -->
 						<!--  listing-item-grid  -->
 						<div class="col-sm-4">
@@ -136,20 +126,7 @@
 						</div>
 						<!--  listing-item-grid end  -->
 						<!--  listing-item-grid  -->
-						<div class="col-sm-8">
-							<div class="listing-item-grid">
-								<div class="bg" data-bg="<?php echo base_url('assets/img/background/field.jpg') ?>">
-								</div>
-								<div class="d-gr-sec"></div>
-								<!-- <div class="listing-counter color2-bg"><span>33 </span> Lokasi Lapangan</div> -->
-								<div class="listing-item-grid_title">
-									<h3><a href="listing.html">Lapangan lembaga</a></h3>
-									<p>Kami menyediakan tempat-tempat lembaga untuk membantu sparing bersama lawan.
-										Informasi detail seperti kondisi lapangan, foto, harga sewa dan lainnya telah
-										diberikan untuk memudahkan pencarian lapangan lembaga</p>
-								</div>
-							</div>
-						</div>
+						
 						<!--  listing-item-grid end  -->
 					</div>
 				</div>
@@ -178,8 +155,8 @@
 							<div class="process-item">
 								<span class="process-count">01 </span>
 								<div class="time-line-icon"><i class="fal fa-user-plus"></i></div>
-								<h4> Daftar dan Tentukan Tim</h4>
-								<p>Lakukanlah pendaftaran kedalam aplikasi, buat tim atau bergabung dengan tim lain</p>
+								<h4> Penginputan data mustahik</h4>
+								<p>Lakukanlah penginputan mustahik kedalam aplikasi</p>
 							</div>
 							<span class="pr-dec"></span>
 						</li>
@@ -187,8 +164,8 @@
 							<div class="process-item">
 								<span class="process-count">02</span>
 								<div class="time-line-icon"><i class="fal fa-map-marker-alt"></i></div>
-								<h4> Cari Lawan</h4>
-								<p>Terdapat rekomendasi pencarian lawan berdasarkan titik map yang terdekat</p>
+								<h4> Proses mining</h4>
+								<p>setelah melakukan penginputan data mustahik lakukanlah proses mining</p>
 							</div>
 							<span class="pr-dec"></span>
 						</li>
@@ -196,8 +173,8 @@
 							<div class="process-item">
 								<span class="process-count">03</span>
 								<div class="time-line-icon"><i class="fal fa-comment-alt"></i></div>
-								<h4> Pengajuan Bertanding</h4>
-								<p>Ketika menemukan lawan yang sesuai, buat pengajuan untuk melakukan pertandingan</p>
+								<h4> Hasil akhir</h4>
+								<p>setelah proses mining, maka akan menghasilkan suatu pohon keputusan</p>
 							</div>
 						</li>
 					</ul>

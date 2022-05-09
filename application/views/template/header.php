@@ -29,7 +29,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Main/index') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -91,7 +91,7 @@
                         <a class="collapse-item" href="<?php echo site_url('C_datamustahik/index') ?>">Data Simulasi</a>
                         <a class="collapse-item" href="<?php echo site_url('C_mining/index') ?>">Mining</a>
                         <a class="collapse-item" href="<?php echo site_url('C_pohonkeputusan/index') ?>">Pohon Keputusan</a>
-                        <a class="collapse-item" href="<?php echo site_url('C_kriteria_pekerjaan/index') ?>">Hasil Akhir</a>
+                        <a class="collapse-item" href="<?php echo site_url('C_hasilklasifikasi/index') ?>">Hasil Akhir</a>
                     </div>
                 </div>
             </li>
@@ -116,7 +116,7 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper">
 
             <!-- Main Content -->
             <div id="content">
@@ -181,7 +181,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo base_url('login/processlogout') ?>" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="<?php echo base_url('login/processlogout/') ?>" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
