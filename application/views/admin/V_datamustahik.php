@@ -39,6 +39,7 @@
                             <td width=30%>
                                 <a class="btn btn-danger btn-xs" href="<?php echo site_url('C_datamustahik/prosesdelete/' . $mustahik["id_mustahik"]) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
                                 <a class="btn btn-warning btn-xs" href="">Edit</a>
+                                <a class="btn btn-success btn-xs" style="background-color:green" href="<?php echo site_url('C_datamustahik/detail/' . $mustahik["id_mustahik"]) ?>">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

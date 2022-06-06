@@ -45,4 +45,22 @@ class C_datamustahik extends CI_Controller
 
         $this->M_datamustahik->deleteDataMustahik($id_datamustahik);
     }
+    function detail($id_mustahik)
+    {
+
+        $data = array(
+
+            'title' => 'Halaman Detail Stock Opname ',
+
+            // variable data kategori
+            'data_mustahik'  => $this->M_datamustahik->getDataMustahikById($id_mustahik),
+            'id_mustahik' => $id_mustahik
+        );
+        // var_dump($data);
+        // exit;
+        // print_r($data['stockopname']->result_array());
+        $this->load->view('template/header');
+        $this->load->view('admin/V_datamustahik_detail', $data);
+        $this->load->view('template/footer');
+    }
 }

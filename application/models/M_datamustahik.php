@@ -16,13 +16,15 @@ class M_datamustahik extends CI_Model
     {
         return $this->db->get('tb_data_mustahik')->result_array();
     }
-    function getDataKriteriaPekerjaanById($id_mustahik)
+    function getDataMustahikById($id_mustahik)
     {
-        $query = "SELECT * FROM 'tb_data_mustahik' WHERE id_mustahik = '$id_mustahik'";
-        $hasil = $this->db->query($query);
-
-        return $hasil;
+        $this->db->select('*');
+        $this->db->from('tb_data_mustahik');
+        $this->db->where('id_mustahik', $id_mustahik);
+        $query = $this->db->get();
+        return $query->result();
     }
+
     function insertDataMustahik()
     {
 
