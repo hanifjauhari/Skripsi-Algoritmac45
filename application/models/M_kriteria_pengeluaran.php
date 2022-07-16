@@ -18,10 +18,11 @@ class M_kriteria_pengeluaran extends CI_Model
     }
     function getDataKriteriaPengeluaranById($id_kriteria_pengeluaran)
     {
-        $query = "SELECT * FROM 'tb_kriteria_pengeluaran' WHERE id_kriteria_pengeluaran = '$id_kriteria_pengeluaran'";
-        $hasil = $this->db->query($query);
-
-        return $hasil;
+        $this->db->select('*');
+        $this->db->from('tb_kriteria_pengeluaran');
+        $this->db->where('id_kriteria_pengeluaran', $id_kriteria_pengeluaran);
+        $query = $this->db->get();
+        return $query;
     }
     function insertkriteriapengeluaran()
     {
@@ -73,6 +74,48 @@ class M_kriteria_pengeluaran extends CI_Model
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <p style="margin: 0px"><i class="icon fas fa-check"></i> Pemberitahuan !</p>
                             <small>Data berhasil dihapus pada ' . date('d F Y H.i A') . '.</small>
+                        </div>';
+        $this->session->set_flashdata('pesan', $htmlPesan);
+
+
+        // kembali 
+        redirect('C_kriteria_pengeluaran/index');
+    }
+    function updateDataKriteriaPengeluaran($id_kriteria_pengeluaran)
+    {
+
+        // get data barang
+        $dataKriteriaPengeluaran = $this->db->get_where('tb_kriteria_pengeluaran', ['id_kriteria_pengeluaran' => $id_kriteria_pengeluaran])->row_array();
+
+        // 1
+
+
+
+        // 4
+
+        // apakah user melakukan upload foto baru ? 
+
+
+        // ---------------------------------------------
+
+        $nilaiTabelKriteriaPengeluaran = array(
+
+            'jumlah_pengeluaran'          => $this->input->post('jumlah_pengeluaran'),
+            'diubah_pada'             => $this->input->post('diubah_pada'),
+
+        );
+
+
+        // query update
+        $this->db->where('id_kriteria_pengeluaran', $id_kriteria_pengeluaran);
+        $this->db->update('tb_kriteria_pengeluaran', $nilaiTabelKriteriaPengeluaran);
+
+
+        // pesan 
+        $htmlPesan = '<div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <p style="margin: 0px"><i class="icon fas fa-check"></i> Pemberitahuan !</p>
+                            <small>Data berhasil diperbarui pada ' . date('d F Y H.i A') . '.</small>
                         </div>';
         $this->session->set_flashdata('pesan', $htmlPesan);
 

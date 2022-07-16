@@ -19,30 +19,40 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <tr>
+                        <td>no</td>
                         <td>nama</td>
-                        <td>no_kk</td>
-                        <td>no_ktp</td>
                         <td>alamat</td>
                         <td>telp</td>
+                        <td>Pekerjaan</td>
+                        <td>Penghasilan</td>
+                        <td>Pengeluaran</td>
+                        <td>Jumlah Tanggungan</td>
+                        <td>Label</td>
                         <td>action</td>
+
                     </tr>
 
-                    <?php foreach ($datamustahik as $mustahik) : ?>
+                    <?php $i = 1;
+                    foreach ($datamustahik as $mustahik) { ?>
 
                         <tr>
-                            <td><?php echo $mustahik['nama'] ?></td>
-                            <td><?php echo $mustahik['no_kk'] ?></td>
-                            <td><?php echo $mustahik['no_ktp'] ?></td>
-                            <td><?php echo $mustahik['Alamat'] ?></td>
-                            <td><?php echo $mustahik['telp'] ?></td>
+                            <td><?php echo $i++ ?></td>
+                            <td><?php echo $mustahik->nama ?></td>
+                            <td><?php echo $mustahik->Alamat ?></td>
+                            <td><?php echo $mustahik->telp ?></td>
+                            <td><?php echo $mustahik->id_kriteria_pekerjaan ?></td>
+                            <td><?php echo $mustahik->id_kriteria_penghasilan ?></td>
+                            <td><?php echo $mustahik->id_kriteria_pengeluaran ?></td>
+                            <td><?php echo $mustahik->id_kriteria_jumlah_tanggungan ?></td>
+                            <td><?php echo $mustahik->label ?></td>
 
                             <td width=30%>
-                                <a class="btn btn-danger btn-xs" href="<?php echo site_url('C_datamustahik/prosesdelete/' . $mustahik["id_mustahik"]) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
-                                <a class="btn btn-warning btn-xs" href="">Edit</a>
-                                <a class="btn btn-success btn-xs" style="background-color:green" href="<?php echo site_url('C_datamustahik/detail/' . $mustahik["id_mustahik"]) ?>">Detail</a>
+                                <a class="btn btn-danger btn-xs" href="<?php echo site_url('C_datamustahik/prosesdelete/' . $mustahik->id_mustahik) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
+                                <a class="btn btn-warning btn-xs" href="<?php echo site_url('C_datamustahik/edit/' . $mustahik->id_mustahik)?>">Edit</a>
+                                <a class="btn btn-success btn-xs" style="background-color:green" href="<?php echo site_url('C_datamustahik/detail/' . $mustahik->id_mustahik) ?>">Detail</a>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </table>
             </div>
         </div>

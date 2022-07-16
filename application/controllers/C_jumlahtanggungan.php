@@ -35,6 +35,17 @@ class C_jumlahtanggungan extends CI_Controller
         $this->load->view('admin/V_jumlahtanggungan_tambah', $data);
         $this->load->view('template/footer');
     }
+    function edit($id_kriteria_jumlah_tanggungan)
+    {
+        $data = array(
+            'title' => 'Halaman Data Kriteria jumlah tanggungan',
+            'data_kriteria_jumlah_tanggungan' => $this->M_jumlahtanggungan->getDataKriteriaJumlahTanggunganById($id_kriteria_jumlah_tanggungan)
+        );
+
+        $this->load->view('template/header', $data);
+        $this->load->view('admin/V_jumlahtanggungan_edit');
+        $this->load->view('template/footer');
+    }
     function prosestambah()
     {
 
@@ -44,5 +55,10 @@ class C_jumlahtanggungan extends CI_Controller
     {
 
         $this->M_jumlahtanggungan->deleteJumlahTanggungan($id_jumlahtanggungan);
+    }
+    function prosesupdate($id_kriteria_jumlah_tanggungan)
+    {
+
+        $this->M_jumlahtanggungan->updateDataKriteriaJumlahTanggungan($id_kriteria_jumlah_tanggungan);
     }
 }

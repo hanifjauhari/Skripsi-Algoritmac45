@@ -18,10 +18,13 @@ class M_jumlahtanggungan extends CI_Model
     }
     function getDataKriteriaJumlahTanggunganById($id_kriteria_jumlah_tanggungan)
     {
-        $query = "SELECT * FROM 'tb_kriteria_jumlah_tanggungan' WHERE id_kriteria_jumlah_tanggungan = '$id_kriteria_jumlah_tanggungan'";
-        $hasil = $this->db->query($query);
-
-        return $hasil;
+        // $query = "SELECT * FROM 'tb_kriteria_jumlah_tanggungan' WHERE id_kriteria_jumlah_tanggungan = '$id_kriteria_jumlah_tanggungan'";
+        // $hasil = $this->db->query($query);
+        $this->db->select('*');
+        $this->db->from('tb_kriteria_jumlah_tanggungan');
+        $this->db->where('id_kriteria_jumlah_tanggungan', $id_kriteria_jumlah_tanggungan);
+        $query = $this->db->get();
+        return $query;
     }
     function insertJumlahTanggungan()
     {
@@ -73,6 +76,38 @@ class M_jumlahtanggungan extends CI_Model
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
                             <p style="margin: 0px"><i class="icon fas fa-check"></i> Pemberitahuan !</p>
                             <small>Data berhasil dihapus pada ' . date('d F Y H.i A') . '.</small>
+                        </div>';
+        $this->session->set_flashdata('pesan', $htmlPesan);
+
+
+        // kembali 
+        redirect('C_jumlahtanggungan/index');
+    }
+    function updateDataKriteriaJumlahTanggungan($id_kriteria_jumlah_tanggungan)
+    {
+
+        // get data barang
+        $dataKriteriaJumlahTanggungan = $this->db->get_where('tb_kriteria_jumlah_tanggungan', ['id_kriteria_jumlah_tanggungan' => $id_kriteria_jumlah_tanggungan])->row_array();
+
+        $nilaiTabelKriteriaJumlahTanggungan = array(
+
+            'jumlah_tanggungan'          => $this->input->post('jumlah_tanggungan'),
+            'diubah_pada'             => $this->input->post('diubah_pada'),
+
+        );
+
+
+        // query update
+        $this->db->where('id_kriteria_jumlah_tanggungan', $id_kriteria_jumlah_tanggungan);
+        $this->db->update('tb_kriteria_jumlah_tanggungan', $nilaiTabelKriteriaJumlahTanggungan);
+        // var_dump($nilaiTabelKriteriaJumlahTanggungan);
+        // exit;
+
+        // pesan 
+        $htmlPesan = '<div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <p style="margin: 0px"><i class="icon fas fa-check"></i> Pemberitahuan !</p>
+                            <small>Data berhasil diperbarui pada ' . date('d F Y H.i A') . '.</small>
                         </div>';
         $this->session->set_flashdata('pesan', $htmlPesan);
 

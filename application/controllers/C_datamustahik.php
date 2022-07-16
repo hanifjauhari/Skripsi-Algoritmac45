@@ -18,9 +18,11 @@ class C_datamustahik extends CI_Controller
     {
         $data = array(
             'title' => 'halaman data mustahik',
-            'datamustahik' => $this->M_datamustahik->getDataMustahik()
-        );
 
+        );
+        $data['datamustahik'] = $this->M_datamustahik->getDataMustahik();
+        // var_dump($data);
+        // exit;
         $this->load->view('template/header');
         $this->load->view('admin/V_datamustahik', $data);
         $this->load->view('template/footer');
@@ -33,6 +35,17 @@ class C_datamustahik extends CI_Controller
         );
         $this->load->view('template/header');
         $this->load->view('admin/V_datamustahik_tambah', $data);
+        $this->load->view('template/footer');
+    }
+    function edit($id_mustahik)
+    {
+        $data = array(
+            'title' => 'Halaman Data Mustahik',
+            'data_mustahik' => $this->M_datamustahik->getDataMustahikById($id_mustahik)
+        );
+
+        $this->load->view('template/header', $data);
+        $this->load->view('admin/V_datamustahik_edit');
         $this->load->view('template/footer');
     }
     function prosestambah()
@@ -62,5 +75,10 @@ class C_datamustahik extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('admin/V_datamustahik_detail', $data);
         $this->load->view('template/footer');
+    }
+    function prosesupdate($id_mustahik)
+    {
+
+        $this->M_datamustahik->updateDataMustahik($id_mustahik);
     }
 }

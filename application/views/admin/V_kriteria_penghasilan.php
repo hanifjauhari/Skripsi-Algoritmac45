@@ -34,7 +34,7 @@
                             <td><?php echo $png['diubah_pada'] ?></td>
                             <td width=30%>
                                 <a class="btn btn-danger btn-xs" href="<?php echo site_url('C_kriteria_penghasilan/prosesdelete/' . $png["id_kriteria_penghasilan"]) ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
-                                <a class="btn btn-warning btn-xs" href="">Edit</a>
+                                <a class="btn btn-warning btn-xs" href="<?php echo site_url('C_kriteria_penghasilan/edit/' . $png["id_kriteria_penghasilan"]) ?>">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

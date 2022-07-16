@@ -45,7 +45,7 @@
                                             <?php
 
                                             $no = 1;
-                                            foreach ($data_mustahik as $row) : ?>
+                                            foreach ($data_mustahik->result() as $row) : ?>
 
                                                 <tr>
                                                     <td><?php echo $no++ ?></td>
@@ -59,24 +59,62 @@
                                                     <td><?php echo $row->jenis_kelamin ?></td>
                                                 </tr>
 
-                                            <?php
-
-                                            endforeach; ?>
-
-                                            <tr>
-
-                                            </tr>
 
 
-                                            </tr>
+                                                <tr>
+
+                                                </tr>
+
+
+                                                </tr>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr>
+                        <div class="row">
 
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-8 col-md-8 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <br>
+                                    <?php
+                                    ?>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group col-6">
+                                                <label>Pekerjaan</label>
+                                                <input type="text" value="<?php echo $row->id_kriteria_pekerjaan ?>" required="" class="form-control" readonly>
+
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>Penghasilan</label>
+                                                <input type="text" value="<?php echo $row->id_kriteria_penghasilan ?>" required="" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-6">
+                                                <label>Pengeluaran</label>
+                                                <input type="text" value="<?php echo $row->id_kriteria_pengeluaran ?>" required="" class="form-control" readonly>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>Jumlah Tanggungan</label>
+                                                <input type="text" value="<?php echo $row->id_kriteria_jumlah_tanggungan ?>" required="" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <br><br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+
+                                            endforeach; ?>
+                        <br>
                         <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                            <br>
+
                             <h3 class="text-primary"><i class="fas fa-paint-brush"></i> Mustahik </h3>
                             <p class="text-muted">Berikut adalah stokopname yang dapat dilaporkan seperti detail disamping.</p>
                             <br>
@@ -93,6 +131,7 @@
                             <a href="<?php echo base_url('C_stockopname') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a>
                             <a href="<?php echo base_url('C_stockopname/exportPDF/') ?>" class="btn btn-warning btn-sm">Cetak Laporan Opname</a>
 
+                        </div>
                         </div>
                     </div>
 

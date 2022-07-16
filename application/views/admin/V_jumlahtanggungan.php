@@ -34,7 +34,7 @@
                             <td><?php echo $jml['diubah_pada'] ?></td>
                             <td width=30%>
                                 <a class="btn btn-danger btn-xs" href="<?php echo site_url('C_jumlahtanggungan/prosesdelete/' . $jml["id_kriteria_jumlah_tanggungan"])?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
-                                <a class="btn btn-warning btn-xs" href="">Edit</a>
+                                <a class="btn btn-warning btn-xs" href="<?php echo site_url('C_jumlahtanggungan/edit/' . $jml["id_kriteria_jumlah_tanggungan"])?>">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

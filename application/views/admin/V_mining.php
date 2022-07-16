@@ -32,7 +32,7 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Pekerjaan</th>
-                            <th>Penghasilan/th>
+                            <th>Penghasilan</th>
                             <th>Pengeluaran</th>
                             <th>Jumlah Tanggungan</th>
                             <th>Label</th>

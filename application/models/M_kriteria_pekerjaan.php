@@ -18,10 +18,13 @@ class M_kriteria_pekerjaan extends CI_Model
     }
     function getDataKriteriaPekerjaanById($id_kriteria_pekerjaan)
     {
-        $query = "SELECT * FROM 'tb_kriteria_pekerjaan' WHERE id_kriteria_pekerjaan = '$id_kriteria_pekerjaan'";
-        $hasil = $this->db->query($query);
-
-        return $hasil;
+        // $query = "SELECT * FROM 'tb_kriteria_pekerjaan' WHERE id_kriteria_pekerjaan = '$id_kriteria_pekerjaan'";
+        // $hasil = $this->db->query($query);
+        $this->db->select('*');
+        $this->db->from('tb_kriteria_pekerjaan');
+        $this->db->where('id_kriteria_pekerjaan', $id_kriteria_pekerjaan);
+        $query = $this->db->get();
+        return $query;
     }
     function insertkriteriapekerjaan()
     {
@@ -33,6 +36,8 @@ class M_kriteria_pekerjaan extends CI_Model
             'diubah_pada'  => $this->input->post('diubah_pada'),
 
         );
+        // var_dump($nilaiTabelKriteriaPekerjaan);
+        // exit;
 
         // query insert
         $this->db->insert('tb_kriteria_pekerjaan', $nilaiTabelKriteriaPekerjaan);
@@ -73,6 +78,48 @@ class M_kriteria_pekerjaan extends CI_Model
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <p style="margin: 0px"><i class="icon fas fa-check"></i> Pemberitahuan !</p>
                             <small>Data berhasil dihapus pada ' . date('d F Y H.i A') . '.</small>
+                        </div>';
+        $this->session->set_flashdata('pesan', $htmlPesan);
+
+
+        // kembali 
+        redirect('C_kriteria_pekerjaan/index');
+    }
+    function updateDataKriteriaPekerjaan($id_kriteria_pekerjaan)
+    {
+
+        // get data barang
+        $dataKriteriaPekerjaan = $this->db->get_where('tb_kriteria_pekerjaan', ['id_kriteria_pekerjaan' => $id_kriteria_pekerjaan])->row_array();
+
+        // 1
+
+
+
+        // 4
+
+        // apakah user melakukan upload foto baru ? 
+
+
+        // ---------------------------------------------
+
+        $nilaiTabelKriteriaPekerjaan = array(
+
+            'nama_pekerjaan'          => $this->input->post('nama_pekerjaan'),
+            'diubah_pada'             => $this->input->post('diubah_pada'),
+
+        );
+
+
+        // query update
+        $this->db->where('id_kriteria_pekerjaan', $id_kriteria_pekerjaan);
+        $this->db->update('tb_kriteria_pekerjaan', $nilaiTabelKriteriaPekerjaan);
+
+
+        // pesan 
+        $htmlPesan = '<div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <p style="margin: 0px"><i class="icon fas fa-check"></i> Pemberitahuan !</p>
+                            <small>Data berhasil diperbarui pada ' . date('d F Y H.i A') . '.</small>
                         </div>';
         $this->session->set_flashdata('pesan', $htmlPesan);
 

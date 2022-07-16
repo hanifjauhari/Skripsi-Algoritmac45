@@ -35,6 +35,17 @@ class C_kriteria_penghasilan extends CI_Controller
         $this->load->view('admin/V_kriteria_penghasilan_tambah', $data);
         $this->load->view('template/footer');
     }
+    function edit($id_kriteria_penghasilan)
+    {
+        $data = array(
+            'title' => 'Halaman Data Kriteria penghasilan',
+            'data_kriteria_penghasilan' => $this->M_kriteria_penghasilan->getDataKriteriaPenghasilanById($id_kriteria_penghasilan)
+        );
+
+        $this->load->view('template/header', $data);
+        $this->load->view('admin/V_kriteria_penghasilan_edit');
+        $this->load->view('template/footer');
+    }
     function prosestambah()
     {
 
@@ -44,5 +55,10 @@ class C_kriteria_penghasilan extends CI_Controller
     {
 
         $this->M_kriteria_penghasilan->deleteKriteriaPenghasilan($id_kriteria_penghasilan);
+    }
+    function prosesupdate($id_kriteria_penghasilan)
+    {
+
+        $this->M_kriteria_penghasilan->updateDataKriteriaPenghasilan($id_kriteria_penghasilan);
     }
 }

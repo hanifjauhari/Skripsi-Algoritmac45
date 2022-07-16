@@ -34,7 +34,7 @@
                             <td><?php echo $pkr['diubah_pada'] ?></td>
                             <td width=30%>
                                 <a class="btn btn-danger btn-xs" href="<?php echo site_url('C_kriteria_pekerjaan/prosesdelete/' . $pkr["id_kriteria_pekerjaan"])?>" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a>
-                                <a class="btn btn-warning btn-xs" href="">Edit</a>
+                                <a class="btn btn-warning btn-xs" href="<?php echo site_url('C_kriteria_pekerjaan/edit/' . $pkr["id_kriteria_pekerjaan"]) ?>">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

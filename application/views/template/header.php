@@ -30,13 +30,18 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Main/index') ?>">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+
+
+
+                <div class="sidebar-brand-text mx-1">
+                    <img class="img-profile rounded-circle" src="<?php echo base_url('assets1/') ?>img/LMI.jpg" style="height:50px; width:50px; margin-top:50px ">
+                    <br>
+                    <h6 style="margin-top: 5px;">Lembaga Management Infaq</h6>
                 </div>
-                <div class="sidebar-brand-text mx-3">LMI</div>
             </a>
 
             <!-- Divider -->
+            <br> <br> <br>
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
@@ -164,7 +169,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Profile</span>
-                                <img class="img-profile rounded-circle" src="<?php echo ('assets1/') ?>img/LMI.jpg">
+                                <img class="img-profile rounded-circle" src="<?php echo base_url('assets1/') ?>img/LMI.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
