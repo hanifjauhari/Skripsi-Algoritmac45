@@ -66,8 +66,7 @@ class C_datamustahik extends CI_Controller
             'title' => 'Halaman Detail Stock Opname ',
 
             // variable data kategori
-            'data_mustahik'  => $this->M_datamustahik->getDataMustahikById($id_mustahik),
-            'id_mustahik' => $id_mustahik
+            'data_mustahik'  => $this->M_datamustahik->getDataMustahik($id_mustahik)
         );
         // var_dump($data);
         // exit;

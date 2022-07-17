@@ -19,16 +19,16 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <tr>
-                        <td>no</td>
-                        <td>nama</td>
-                        <td>alamat</td>
-                        <td>telp</td>
-                        <td>Pekerjaan</td>
-                        <td>Penghasilan</td>
-                        <td>Pengeluaran</td>
-                        <td>Jumlah Tanggungan</td>
-                        <td>Label</td>
-                        <td>action</td>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Telp</th>
+                        <th>Pekerjaan</th>
+                        <th>Penghasilan</th>
+                        <th>Pengeluaran</th>
+                        <th>Jumlah Tanggungan</th>
+                        <th>Label</th>
+                        <th>Aksi</th>
 
                     </tr>
 
@@ -38,12 +38,12 @@
                         <tr>
                             <td><?php echo $i++ ?></td>
                             <td><?php echo $mustahik->nama ?></td>
-                            <td><?php echo $mustahik->Alamat ?></td>
+                            <td><?php echo $mustahik->alamat ?></td>
                             <td><?php echo $mustahik->telp ?></td>
-                            <td><?php echo $mustahik->id_kriteria_pekerjaan ?></td>
-                            <td><?php echo $mustahik->id_kriteria_penghasilan ?></td>
-                            <td><?php echo $mustahik->id_kriteria_pengeluaran ?></td>
-                            <td><?php echo $mustahik->id_kriteria_jumlah_tanggungan ?></td>
+                            <td><?php echo $mustahik->pekerjaan ?></td>
+                            <td><?php echo $mustahik->penghasilan ?></td>
+                            <td><?php echo $mustahik->pengeluaran ?></td>
+                            <td><?php echo $mustahik->tanggungan ?></td>
                             <td><?php echo $mustahik->label ?></td>
 
                             <td width=30%>

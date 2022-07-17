@@ -21,23 +21,36 @@
                         </div>
                         <div class="form-group">
                             <!--<input name="submit" type="submit" value="Upload Data" class="btn btn-success">-->
-                            <button name="proses_mining" type="submit" class="btn btn-default" onclick="">
+                            <a href="<?= site_url('C_mining/mining'); ?>" name="proses_mining" type="submit" class="btn btn-default">
                                 <i class="fa fa-check"></i> Proses Mining
-                            </button>
+                            </a>
+                            <!-- <button name="proses_mining" type="submit" class="btn btn-default" onclick="">
+                                <i class="fa fa-check"></i> Proses Mining
+                            </button> -->
                         </div>
                     </form>
 
                     <table class='table table-bordered table-striped  table-hover'>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Pekerjaan</th>
-                            <th>Penghasilan</th>
-                            <th>Pengeluaran</th>
-                            <th>Jumlah Tanggungan</th>
-                            <th>Label</th>
-                        </tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Pekerjaan</th>
+                        <th>Penghasilan</th>
+                        <th>Pengeluaran</th>
+                        <th>Jumlah Tanggungan</th>
+                        <th>Label</th>
+                        <?php $i = 1;
+                        foreach ($data_mustahik as $mustahik) { ?>
 
+                        <tr>
+                            <td><?= $i++; ?></td>
+                            <td><?= $mustahik->nama; ?></td>
+                            <td><?= $mustahik->pekerjaan; ?></td>
+                            <td><?= $mustahik->penghasilan; ?></td>
+                            <td><?= $mustahik->pengeluaran; ?></td>
+                            <td><?= $mustahik->tanggungan; ?></td>
+                            <td><?= $mustahik->label; ?></td>
+                        </tr>
+                        <?php } ?>
                     </table>
                 </div>
             </div>

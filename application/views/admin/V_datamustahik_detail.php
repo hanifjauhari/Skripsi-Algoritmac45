@@ -31,42 +31,29 @@
                                         <h4>Informasi Data Mustahik</h4>
                                         <table class="table">
                                             <tr>
-                                                <th>No</th>
+                                                <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>No KK</th>
-                                                <th>no Ktp</th>
-                                                <th>tempat lahir</th>
-                                                <th>tanggal lahir</th>
+                                                <th>No Ktp</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
                                                 <th>Alamat</th>
-                                                <th>telp</th>
+                                                <th>Telp</th>
                                                 <th>Jenis Kelamin</th>
 
                                             </tr>
-                                            <?php
-
-                                            $no = 1;
-                                            foreach ($data_mustahik->result() as $row) : ?>
-
                                                 <tr>
-                                                    <td><?php echo $no++ ?></td>
-                                                    <td><?php echo $row->nama ?></td>
-                                                    <td><?php echo $row->no_kk ?></td>
-                                                    <td><?php echo $row->no_ktp ?></td>
-                                                    <td><?php echo $row->tempat_lahir ?></td>
-                                                    <td><?php echo $row->tanggal_lahir ?></td>
-                                                    <td><?php echo $row->Alamat ?></td>
-                                                    <td><?php echo $row->telp ?></td>
-                                                    <td><?php echo $row->jenis_kelamin ?></td>
+                                                    <td><?= $data_mustahik->id_mustahik; ?></td>
+                                                    <td><?= $data_mustahik->nama; ?></td>
+                                                    <td><?= $data_mustahik->kk; ?></td>
+                                                    <td><?= $data_mustahik->ktp; ?></td>
+                                                    <td><?= $data_mustahik->tempat_lahir; ?></td>
+                                                    <td><?= $data_mustahik->tanggal_lahir; ?></td>
+                                                    <td><?= $data_mustahik->alamat; ?></td>
+                                                    <td><?= $data_mustahik->telp; ?></td>
+                                                    <td><?= $data_mustahik->kelamin; ?></td>
                                                 </tr>
-
-
-
-                                                <tr>
-
-                                                </tr>
-
-
-                                                </tr>
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>
@@ -85,22 +72,22 @@
                                         <div class="form-row">
                                             <div class="form-group col-6">
                                                 <label>Pekerjaan</label>
-                                                <input type="text" value="<?php echo $row->id_kriteria_pekerjaan ?>" required="" class="form-control" readonly>
+                                                <input type="text" value="<?= $data_mustahik->pekerjaan; ?>" required="" class="form-control" readonly>
 
                                             </div>
                                             <div class="form-group col-6">
                                                 <label>Penghasilan</label>
-                                                <input type="text" value="<?php echo $row->id_kriteria_penghasilan ?>" required="" class="form-control" readonly>
+                                                <input type="text" value="<?= $data_mustahik->penghasilan; ?>" required="" class="form-control" readonly>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-6">
                                                 <label>Pengeluaran</label>
-                                                <input type="text" value="<?php echo $row->id_kriteria_pengeluaran ?>" required="" class="form-control" readonly>
+                                                <input type="text" value="<?= $data_mustahik->pengeluaran; ?>" required="" class="form-control" readonly>
                                             </div>
                                             <div class="form-group col-6">
                                                 <label>Jumlah Tanggungan</label>
-                                                <input type="text" value="<?php echo $row->id_kriteria_jumlah_tanggungan ?>" required="" class="form-control" readonly>
+                                                <input type="text" value="<?= $data_mustahik->tanggungan; ?>" required="" class="form-control" readonly>
                                             </div>
                                         </div>
                                         <br><br>
@@ -108,9 +95,6 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php
-
-                                            endforeach; ?>
                         <br>
                         <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                             <br>

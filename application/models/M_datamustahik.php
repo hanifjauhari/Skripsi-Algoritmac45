@@ -12,26 +12,34 @@ class M_datamustahik extends CI_Model
         //Do your magic here
     }
 
-    public function getDataMustahik()
+    public function getDataMustahik($id_mustahik = null)
     {
-        $this->db->select('*');
-        $this->db->from('tb_data_mustahik');
-        // $this->db->join('tb_kriteria_pekerjaan', 'tb_kriteria_pekerjaan.id_kriteria_pekerjaan = tb_data_mustahik.id_kriteria_pekerjaan');
-        // $this->db->join('tb_kriteria_pengeluaran', 'tb_kriteria_pengeluaran.id_kriteria_pengeluaran = tb_data_mustahik.id_kriteria_pengeluaran');
-        // $this->db->join('tb_kriteria_penghasilan', 'tb_kriteria_penghasilan.id_kriteria_penghasilan = tb_data_mustahik.id_kriteria_penghasilan');
-        // $this->db->join('tb_kriteria_jumlah_tanggungan', 'tb_kriteria_jumlah_tanggungan.id_kriteria_jumlah_tanggungan = tb_data_mustahik.id_kriteria_jumlah_tanggungan');
-        $query = $this->db->get()->result();
-        // var_dump($query);
-        // exit;
-        return $query;
-    }
-    function getDataMustahikById($id_mustahik)
-    {
-        $this->db->select('*');
-        $this->db->from('tb_data_mustahik');
-        $this->db->where('id_mustahik', $id_mustahik);
-        $query = $this->db->get();
-        return $query;
+        if ($id_mustahik === null) {
+            $query = "SELECT tb_data_mustahik.id_mustahik as id_mustahik, tb_data_mustahik.nama as nama, tb_data_mustahik.Alamat as alamat, tb_data_mustahik.telp as telp, tb_data_mustahik.label as label,
+            tb_kriteria_pekerjaan.nama_pekerjaan as pekerjaan, tb_kriteria_penghasilan.jumlah_penghasilan as penghasilan, tb_kriteria_pengeluaran.jumlah_pengeluaran as pengeluaran,
+            tb_kriteria_jumlah_tanggungan.jumlah_tanggungan as tanggungan
+            FROM tb_data_mustahik 
+            INNER JOIN tb_kriteria_pekerjaan ON tb_data_mustahik.id_kriteria_pekerjaan = tb_kriteria_pekerjaan.id_kriteria_pekerjaan
+            INNER JOIN tb_kriteria_penghasilan ON tb_data_mustahik.id_kriteria_penghasilan = tb_kriteria_penghasilan.id_kriteria_penghasilan
+            INNER JOIN tb_kriteria_pengeluaran ON tb_data_mustahik.id_kriteria_pengeluaran = tb_kriteria_pengeluaran.id_kriteria_pengeluaran
+            INNER JOIN tb_kriteria_jumlah_tanggungan ON tb_data_mustahik.id_kriteria_jumlah_tanggungan= tb_kriteria_jumlah_tanggungan.id_kriteria_jumlah_tanggungan";
+
+            return $this->db->query($query)->result();
+        } else {
+            $query = "SELECT tb_data_mustahik.id_mustahik as id_mustahik, tb_data_mustahik.nama as nama, tb_data_mustahik.no_kk as kk, tb_data_mustahik.no_ktp as ktp, tb_data_mustahik.tempat_lahir as tempat_lahir, tb_data_mustahik.tanggal_lahir as tanggal_lahir, tb_data_mustahik.Alamat as alamat, tb_data_mustahik.telp as telp, tb_data_mustahik.jenis_kelamin as kelamin, tb_data_mustahik.label as label,
+            tb_kriteria_pekerjaan.nama_pekerjaan as pekerjaan, 
+            tb_kriteria_penghasilan.jumlah_penghasilan as penghasilan, 
+            tb_kriteria_pengeluaran.jumlah_pengeluaran as pengeluaran,
+            tb_kriteria_jumlah_tanggungan.jumlah_tanggungan as tanggungan
+            FROM tb_data_mustahik 
+            INNER JOIN tb_kriteria_pekerjaan ON tb_data_mustahik.id_kriteria_pekerjaan = tb_kriteria_pekerjaan.id_kriteria_pekerjaan
+            INNER JOIN tb_kriteria_penghasilan ON tb_data_mustahik.id_kriteria_penghasilan = tb_kriteria_penghasilan.id_kriteria_penghasilan
+            INNER JOIN tb_kriteria_pengeluaran ON tb_data_mustahik.id_kriteria_pengeluaran = tb_kriteria_pengeluaran.id_kriteria_pengeluaran
+            INNER JOIN tb_kriteria_jumlah_tanggungan ON tb_data_mustahik.id_kriteria_jumlah_tanggungan= tb_kriteria_jumlah_tanggungan.id_kriteria_jumlah_tanggungan
+            WHERE tb_data_mustahik.id_mustahik = $id_mustahik";
+
+            return $this->db->query($query)->row();
+        }
     }
 
     function insertDataMustahik()
