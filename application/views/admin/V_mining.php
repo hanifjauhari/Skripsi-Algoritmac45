@@ -43,12 +43,12 @@
 
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $mustahik->nama; ?></td>
-                            <td><?= $mustahik->pekerjaan; ?></td>
-                            <td><?= $mustahik->penghasilan; ?></td>
-                            <td><?= $mustahik->pengeluaran; ?></td>
-                            <td><?= $mustahik->tanggungan; ?></td>
-                            <td><?= $mustahik->label; ?></td>
+                            <td><?= $mustahik['nama']; ?></td>
+                            <td><?= $mustahik['pekerjaan']; ?></td>
+                            <td><?= $mustahik['penghasilan']; ?></td>
+                            <td><?= $mustahik['pengeluaran']; ?></td>
+                            <td><?= $mustahik['tanggungan']; ?></td>
+                            <td><?= $mustahik['label']; ?></td>
                         </tr>
                         <?php } ?>
                     </table>

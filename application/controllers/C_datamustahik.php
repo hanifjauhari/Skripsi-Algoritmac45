@@ -21,8 +21,7 @@ class C_datamustahik extends CI_Controller
 
         );
         $data['datamustahik'] = $this->M_datamustahik->getDataMustahik();
-        // var_dump($data);
-        // exit;
+        
         $this->load->view('template/header');
         $this->load->view('admin/V_datamustahik', $data);
         $this->load->view('template/footer');
