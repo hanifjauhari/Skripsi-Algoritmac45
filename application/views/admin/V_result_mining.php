@@ -11,17 +11,21 @@
                     <div class="row">Jumlah Tidak Layak = <?= $count_tidak_layak->result; ?></div>
                     <div class="row">Entropy all = <?= $entropy_all; ?></div>
                     <div class="row">
-                        <table class='table table-bordered table-striped  table-hover'>
-                            <th>Nilai Atribut</th>
-                            <th>Jumlah Data</th>
-                            <th>Layak</th>
-                            <th>Tidak Layak</th>
-                            <th>Entropy</th>
-                            <th>Gain</th>
+                        <table class='table table-bordered table-hover'>
+                            <thead class="table-dark">
+                                <th>Nilai Atribut</th>
+                                <th>Jumlah Data</th>
+                                <th>Layak</th>
+                                <th>Tidak Layak</th>
+                                <th>Entropy</th>
+                                <th>Gain</th>
+                            </thead>
                             <?=$algoritm_c45;?>
                         </table>
                     </div>
                     <br>
+                    <?= $attribute_tree; ?>
+                    <?= $attribute_tree2; ?>
                 </div>
             </div>
         </div>

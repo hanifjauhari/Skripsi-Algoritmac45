@@ -9,45 +9,26 @@ class M_mining extends CI_Model
         parent::__construct();
     }
 
-    public function condition($field, $condition = null) {
-        if ($condition === null) {
-            $sql = "SELECT DISTINCT($field) FROM tb_data_mustahik";
-        } else {
-            $sql = "SELECT DISTINCT($field) FROM tb_data_mustahik WHERE $condition";
-        }
-        $result = $this->db->query($sql);
-        
-        if ($result->num_rows() >= 1) {
-            $value = "heterogen";
-        } else {
-            $value = "homogen";
-        }
-        return $value;
-    }
-
-    public function distinctAtribute($field, $condition = null)
-    {
-        if ($condition === null) {
-            $sql = "SELECT DISTINCT($field) FROM tb_data_mustahik";
-        } else {
-            $sql = "SELECT DISTINCT($field) FROM tb_data_mustahik WHERE $condition";
-        }
-
+    public function loadData($table, $field1, $field2) {
+        $sql = "SELECT $table.$field1 as id, $table.$field2 as jumlah FROM $table";
+        // var_dump($sql);
+        // die;
         return $this->db->query($sql)->result();
     }
 
     public function countData($condition = null) {
         if ($condition === null) {
-            $sql = "SELECT count(*) as result FROM tb_data_mustahik";
+            $sql = "SELECT COUNT(*) as result FROM tb_data_mustahik";
         } else {
-            $sql = "SELECT count(*) as result
+            $sql = "SELECT COUNT(*) as result
             FROM tb_data_mustahik
             WHERE $condition";
         }
+        // var_dump("$sql<br>");
         return $this->db->query($sql)->row();
     }
 
-    public function getNameAtribute($table, $id, $field, $condition)
+    public function getNameAttribute($table, $id, $field, $condition)
     {
         $sql = "SELECT $field as name FROM $table WHERE $id = '$condition'";
         return $this->db->query($sql)->row();
