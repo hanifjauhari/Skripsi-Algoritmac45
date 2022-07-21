@@ -26,6 +26,7 @@
                     <br>
                     <?= $attribute_tree; ?>
                     <?= $attribute_tree2; ?>
+                    <?= $attribute_tree3; ?>
                 </div>
             </div>
         </div>

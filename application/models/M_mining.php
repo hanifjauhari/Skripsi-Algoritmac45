@@ -11,8 +11,6 @@ class M_mining extends CI_Model
 
     public function loadData($table, $field1, $field2) {
         $sql = "SELECT $table.$field1 as id, $table.$field2 as jumlah FROM $table";
-        // var_dump($sql);
-        // die;
         return $this->db->query($sql)->result();
     }
 
@@ -24,7 +22,6 @@ class M_mining extends CI_Model
             FROM tb_data_mustahik
             WHERE $condition";
         }
-        // var_dump("$sql<br>");
         return $this->db->query($sql)->row();
     }
 

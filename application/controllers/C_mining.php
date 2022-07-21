@@ -18,6 +18,10 @@ class C_mining extends CI_Controller
         $this->nodeAttribute = array("Pekerjaan", "Penghasilan", "Pengeluaran", "Jumlah Tanggungan");
         $this->condition = array();
         $this->condition2 = array();
+        $this->condition3 = array();
+        $this->condition4 = array();
+        $this->classificationAttr = array();
+        $this->parentTreeAttribute = "";
 
         $this->load->model('M_datamustahik');
         $this->load->model('M_mining');
@@ -43,6 +47,7 @@ class C_mining extends CI_Controller
         $data['algoritm_c45'] = $this->algoritm_c45($data['count_layak']->result, $data['count_tidak_layak']->result);
         $data['attribute_tree'] = $this->attributeTree();
         $data['attribute_tree2'] = $this->attributeTree2();
+        $data['attribute_tree3'] = $this->attributeTree3();
 
         $this->load->view('template/header');
         $this->load->view('admin/V_result_mining', $data);
@@ -158,9 +163,9 @@ class C_mining extends CI_Controller
     private function attributeTree() {
         // mencari gain terbesar
         $gain = $this->higher_gain;
-        
         unset($this->higher_gain);
         $this->higher_gain = array();
+
         $max = array_keys($gain, max($gain))[0];
         
         $idMax = $this->idAttribute[$max];
@@ -175,7 +180,7 @@ class C_mining extends CI_Controller
         array_splice($this->nodeAttribute, $max, 1);
         array_splice($this->uniqueValue, $max, 1);
 
-        $result_tree = $this->findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, "");
+        $result_tree = $this->findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, "", $this->idAttribute, $this->nameAttribute, $this->dbAttribute, $this->nodeAttribute, $this->uniqueValue, $max);
         return $result_tree;
     }
 
@@ -187,58 +192,112 @@ class C_mining extends CI_Controller
         $this->higher_gain = array();
 
         $conditionSet = $this->condition;
-        unset($this->condition);
-        $this->condition = array();
 
-        foreach ($conditionSet as $key => $value) {
-            if (count($this->condition2) > 1) {
-                $this->condition2[$key] .= $value;
-            } else {
-                array_push($this->condition2, $value);
-            }
-        }
-        
-        $maxArr = array();
+        unset($this->classificationAttr);
+        $this->classificationAttr = array();
+
         foreach ($gain as $i => $value) {
             $max = array_keys($value, max($value))[0];
-            array_push($maxArr, $max);
+
+            $id = $this->idAttribute;
+            $name = $this->nameAttribute;
+            $db = $this->dbAttribute;
+            $node = $this->nodeAttribute;
+            $unique = $this->uniqueValue;
+
+            $idMax = $id[$max];
+            $nameMax = $name[$max];
+            $loadDbMax = $db[$max];
+            $nodeAttrMax = $node[$max];
+
+            array_splice($id, $max, 1);
+            array_splice($name, $max, 1);
+            array_splice($db, $max, 1);
+            array_splice($node, $max, 1);
+            array_splice($unique, $max, 1);
+            $result_tree .= $this->findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, $conditionSet[$i], $id, $name, $db, $node, $unique, $max);
         }
-
-        $idMax = $this->idAttribute[$maxArr[0]];
-        $nameMax = $this->nameAttribute[$maxArr[0]];
-        $loadDbMax = $this->dbAttribute[$maxArr[0]];
-        $nodeAttrMax = $this->nodeAttribute[$maxArr[0]];
-
-        array_splice($this->uniqueValue, $maxArr[0], 1);
-        array_splice($this->idAttribute, $maxArr[0], 1);
-        array_splice($this->nameAttribute, $maxArr[0], 1);
-        array_splice($this->dbAttribute, $maxArr[0], 1);
-        array_splice($this->nodeAttribute, $maxArr[0], 1);
-        $result_tree .= $this->findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, $conditionSet[0]);
-
-        $idMax = $this->idAttribute[1];
-        $nameMax = $this->nameAttribute[1];
-        $loadDbMax = $this->dbAttribute[1];
-        $nodeAttrMax = $this->nodeAttribute[1];
-
-
-        array_splice($this->uniqueValue, 1, 1);
-        array_splice($this->idAttribute, 1, 1);
-        array_splice($this->nameAttribute, 1, 1);
-        array_splice($this->dbAttribute, 1, 1);
-        array_splice($this->nodeAttribute, 1, 1);
-        $result_tree .= $this->findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, $conditionSet[1]);
         
         return $result_tree;
     }
 
-    private function findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, $conditionSet)
+    private function attributeTree3() {
+        $result_tree = "";
+        
+        $gain = $this->higher_gain;
+        unset($this->higher_gain);
+        $this->higher_gain = array();
+
+        $conditionSet = $this->condition2;
+        unset($this->condition);
+        $this->condition = array();
+
+        $clsfAttr = $this->classificationAttr;
+        unset($this->classificationAttr);
+        $this->classificationAttr = array();
+
+        $unique = $this->uniqueValue;
+        array_splice($unique, 1);
+
+        $idMax = array();
+        $nameMax = array();
+        $dbMax = array();
+        $nodeMax = array();
+
+        $idArr = array();
+        $nameArr = array();
+        $dbArr = array();
+        $nodeArr = array();
+
+        $maxVal = array();
+
+        for($i = 0; $i < count($gain); $i++) {
+            $max = array_keys($gain[$i], max($gain[$i]))[0];
+
+            $id = $this->idAttribute;
+            $name = $this->nameAttribute;
+            $db = $this->dbAttribute;
+            $node = $this->nodeAttribute;
+            
+            
+
+            array_splice($id, $clsfAttr[$i], 1);
+            array_splice($name, $clsfAttr[$i], 1);
+            array_splice($db, $clsfAttr[$i], 1);
+            array_splice($node, $clsfAttr[$i], 1);
+
+            array_push($maxVal, $max);
+            array_push($idMax, $id[$max]);
+            array_push($nameMax, $name[$max]);
+            array_push($dbMax, $db[$max]);
+            array_push($nodeMax, $node[$max]);
+
+            array_splice($id, $max, 1);
+            array_splice($name, $max, 1);
+            array_splice($db, $max, 1);
+            array_splice($node, $max, 1);
+
+            array_push($idArr, $id);
+            array_push($nameArr, $name);
+            array_push($dbArr, $db);
+            array_push($nodeArr, $node);
+        }
+        for ($i=0; $i < count($dbMax); $i++) { 
+            if ($i+1 != count($dbMax) && $dbMax[$i] == $dbMax[$i+1]) {
+                continue;
+            }
+            $result_tree .= $this->findTree($nodeMax[$i], $dbMax[$i], $idMax[$i], $nameMax[$i], $conditionSet[$i], $idArr[$i], $nameArr[$i], $dbArr[$i], $nodeArr[$i], $unique, $max);
+        }
+
+        return $result_tree;
+    }
+
+    private function findTree($nodeAttrMax, $loadDbMax, $idMax, $nameMax, $conditionSet, $idAttr, $nameAttr, $dbAttr, $nodeAttr, $uniqVal, $max)
     {
         $result_tree = "";
         $loadData = $this->M_mining->loadData($loadDbMax, $idMax, $nameMax);
-        
-        foreach ($loadData as $data) {
-            $newCondition = " AND $idMax = '$data->id'";
+        for ($i = 0; $i < count($loadData); $i++) {
+            $newCondition = " AND $idMax = '". $loadData[$i]->id ."'";
             
             $checkWorth = $this->M_mining->countData("label = 'layak'". $conditionSet . $newCondition)->result;
             $checkUnWorth = $this->M_mining->countData("label = 'tidak_layak'". $conditionSet . $newCondition)->result;
@@ -247,11 +306,16 @@ class C_mining extends CI_Controller
                 $unWorthPercen = round($checkUnWorth/$tot_case*100, 3);
                 if ($unWorthPercen >= 20) { // cek persentase tidak layak
                     $conditionTmp = $conditionSet . $newCondition;
-                    $result_tree .= $this->branchAttribute($nodeAttrMax, $data->jumlah, $checkWorth, $checkUnWorth, $conditionTmp);
+                    $result_tree .= $this->branchAttribute($nodeAttrMax, $loadData[$i]->jumlah, $checkWorth, $checkUnWorth, $conditionTmp, $idAttr, $nameAttr, $dbAttr, $nodeAttr, $uniqVal);
                     array_push($this->higher_gain, $this->higher_gain2);
                     unset($this->higher_gain2);
                     $this->higher_gain2 = array();
-                    array_push($this->condition, $newCondition);
+                    if (count($this->condition) == 0 || count($this->condition) == 1) {
+                        array_push($this->condition, $conditionTmp);
+                    } else {
+                        array_push($this->condition2, $conditionTmp);
+                    }
+                    array_push($this->classificationAttr, $max);
                 } else {
                     // code untuk keputusan layak
                 }
@@ -259,22 +323,32 @@ class C_mining extends CI_Controller
                 $worthPercen = round($checkWorth/$tot_case*100, 3);
                 if ($worthPercen >= 20) { // cek persentase layak
                     $conditionTmp = $conditionSet . $newCondition;
-                    $result_tree .= $this->branchAttribute($nodeAttrMax, $data->jumlah, $checkWorth, $checkUnWorth, $conditionTmp);
+                    $result_tree .= $this->branchAttribute($nodeAttrMax, $loadData[$i]->jumlah, $checkWorth, $checkUnWorth, $conditionTmp, $idAttr, $nameAttr, $dbAttr, $nodeAttr, $uniqVal);
                     array_push($this->higher_gain, $this->higher_gain2);
                     unset($this->higher_gain2);
                     $this->higher_gain2 = array();
-                    array_push($this->condition, $newCondition);
+                    if (count($this->condition) == 0 || count($this->condition) == 1) {
+                        array_push($this->condition, $conditionTmp);
+                    } else {
+                        array_push($this->condition2, $conditionTmp);
+                    }
+                    array_push($this->classificationAttr, $max);
                 } else {
                     // code untuk keputusan tidak layak
                 }
             } else { //jika jumlah layak dan tidak layak sama (auto hitung ulang)
                 if ($checkWorth > 0 && $checkUnWorth > 0) {
                     $conditionTmp = $conditionSet . $newCondition;
-                    $result_tree .= $this->branchAttribute($nodeAttrMax, $data->jumlah, $checkWorth, $checkUnWorth, $conditionTmp);
+                    $result_tree .= $this->branchAttribute($nodeAttrMax, $loadData[$i]->jumlah, $checkWorth, $checkUnWorth, $conditionTmp, $idAttr, $nameAttr, $dbAttr, $nodeAttr, $uniqVal);
                     array_push($this->higher_gain, $this->higher_gain2);
                     unset($this->higher_gain2);
                     $this->higher_gain2 = array();
-                    array_push($this->condition, $newCondition);
+                    if (count($this->condition) == 0 || count($this->condition) == 1) {
+                        array_push($this->condition, $conditionTmp);
+                    } else {
+                        array_push($this->condition2, $conditionTmp);
+                    }
+                    array_push($this->classificationAttr, $max);
                 } else {
                     // code untuk keputusan
                 }
@@ -283,19 +357,13 @@ class C_mining extends CI_Controller
         return $result_tree;
     }
 
-    private function branchAttribute($nodeAttrMax, $valueAttrMax, $worth, $unWorth, $condition)
+    private function branchAttribute($nodeAttrMax, $valueAttrMax, $worth, $unWorth, $condition, $idAttr, $nameAttr, $dbAttr, $nodeAttr, $uniqVal)
     {
-        $idAttr = $this->idAttribute;
-        $nameAttr = $this->nameAttribute;
-        $dbAttr = $this->dbAttribute;
-        $nodeAttr = $this->nodeAttribute;
-        $uniqVal = $this->uniqueValue;
-
         $result_tree = "";
         $total_case = $worth + $unWorth;
         $entropy = $this->count_entropy($worth, $unWorth);
-        $result_tree .= "
-            <div class='row'>$nodeAttrMax = $valueAttrMax</div>
+        $result_tree .=  
+            "<div class='row'>Atribut terpilih = $nodeAttrMax $valueAttrMax</div>
             <div class='row'>Jumlah data = $total_case</div>
             <div class='row'>Jumlah layak = $worth</div>
             <div class='row'>Jumlah tidak layak = $unWorth</div>
@@ -332,8 +400,8 @@ class C_mining extends CI_Controller
         $count_data = $layak + $tidakLayak;
         $result_c45 = "";
 
-        $size = count($wordUnique);
         $i = 0;
+        $size = count($wordUnique);
         $dump_gain = 0;
         
         foreach ($wordUnique as $alias => $value) {
