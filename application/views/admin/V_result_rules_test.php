@@ -2,7 +2,7 @@
     <!--typography-page -->
     <div class="typo-w3">
         <div class="container">
-            <h2 class="tittle">Hasil Klasifikasi</h2>
+            <h2 class="tittle">Uji Pohon Keputusan</h2>
             <div class="row">
                 <div class="col-md-12">
                     <table class='table table-bordered table-hover'>
@@ -16,6 +16,9 @@
                             <th>Id Rule</th>
                             <th>Ketepatan</th>
                         </thead>
+                        <tbody>
+                            <?= $result; ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
