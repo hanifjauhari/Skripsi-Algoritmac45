@@ -22,8 +22,7 @@ class M_decision_tree extends CI_Model
         INNER JOIN tb_kriteria_pekerjaan ON tb_data_mustahik.id_kriteria_pekerjaan = tb_kriteria_pekerjaan.id_kriteria_pekerjaan
         INNER JOIN tb_kriteria_penghasilan ON tb_data_mustahik.id_kriteria_penghasilan = tb_kriteria_penghasilan.id_kriteria_penghasilan
         INNER JOIN tb_kriteria_pengeluaran ON tb_data_mustahik.id_kriteria_pengeluaran = tb_kriteria_pengeluaran.id_kriteria_pengeluaran
-        INNER JOIN tb_kriteria_jumlah_tanggungan ON tb_data_mustahik.id_kriteria_jumlah_tanggungan= tb_kriteria_jumlah_tanggungan.id_kriteria_jumlah_tanggungan
-        LIMIT 20";
+        INNER JOIN tb_kriteria_jumlah_tanggungan ON tb_data_mustahik.id_kriteria_jumlah_tanggungan= tb_kriteria_jumlah_tanggungan.id_kriteria_jumlah_tanggungan";
         
         return $this->db->query($query)->result();
     }

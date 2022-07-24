@@ -40,7 +40,7 @@ class C_datamustahik extends CI_Controller
     {
         $data = array(
             'title' => 'Halaman Data Mustahik',
-            'data_mustahik' => $this->M_datamustahik->getDataMustahikById($id_mustahik)
+            'data_mustahik' => $this->M_datamustahik->getDataMustahik($id_mustahik)
         );
 
         $this->load->view('template/header', $data);

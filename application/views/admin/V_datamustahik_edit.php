@@ -1,10 +1,5 @@
 <!-- Karena sudah ada template header footer, langsung copas kontennya -->
 
-<?php
-
-$kolom = $data_mustahik->row_array();
-?>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -33,144 +28,126 @@ $kolom = $data_mustahik->row_array();
 
             <div class="row">
 
-                <div class="col-md-6 offset-3">
+                <div class="col-md-12">
 
-                    <form action="<?php echo site_url('C_datamustahik/prosesupdate/' . $kolom['id_mustahik']) ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo site_url('C_datamustahik/prosesupdate/').$data_mustahik->id_mustahik; ?>" method="POST" enctype="multipart/form-data">
                         <div class="card card-body">
-
                             <h4>Form Sunting Data Mustahik</h4>
 
-
-                            <div class="form-group">
-
-                                <label>Nama</label>
-                                <input type="text" class="form-control" name="nama" required="" value="<?php echo $kolom['nama'] ?>">
-                                <small>Masukkan nama</small>
+                            <div class="form-row">
+                                <div class="form-group col-md-9">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" name="nama" required="" value="<?= $data_mustahik->nama; ?>" placeholder="Masukkan Nama">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Jenis Kelamin</label>
+                                    <select class="custom-select" id="inlineFormCustomSelect jenis_kelamin" name="jenis_kelamin" required>
+                                        <option value="">-Pilih-</option>
+                                        <option value="laki-laki">Laki-Laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
+                                </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>Tempat lahir</label>
+                                    <input type="text" class="form-control" name="tempat_lahir" required="" value="<?= $data_mustahik->tempat_lahir; ?>">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Tanggal lahir</label>
+                                    <input type="date" class="form-control" name="tanggal_lahir" required="" value="<?= $data_mustahik->tanggal_lahir; ?>">
+                                </div>
+                                <div class="form-group col-md-4">     
+                                    <label>No Telepon</label>
+                                    <input type="text" class="form-control" name="telp" required="" value="<?= $data_mustahik->telp; ?>">
+                                </div>
+                            </div>
 
-                            <div class="form-group">
-
-                                <label>no_kk</label>
-                                <input type="text" class="form-control" name="no_kk" required="" value="<?php echo $kolom['no_kk'] ?>">
-                                <small>masukan no kk</small>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>No. KK</label>
+                                    <input type="text" class="form-control" name="no_kk" required="" value="<?= $data_mustahik->kk; ?>">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>No. KTP</label>
+                                    <input type="text" class="form-control" name="no_ktp" required="" value="<?= $data_mustahik->ktp; ?>">
+                                </div>
                             </div>
 
                             <div class="form-group">
-
-                                <label>no_ktp</label>
-                                <input type="text" class="form-control" name="no_ktp" required="" value="<?php echo $kolom['no_ktp'] ?>">
-                                <small>masukan no ktp</small>
-                            </div>
-                            <div class="form-group">
-
-                                <label>tempat lahir</label>
-                                <input type="text" class="form-control" name="tempat_lahir" required="" value="<?php echo $kolom['tempat_lahir'] ?>">
-                                <small>masukan tempat lahir</small>
-                            </div>
-                            <div class="form-group">
-
-                                <label>tanggal_lahir</label>
-                                <input type="text" class="form-control" name="tanggal_lahir" required="" value="<?php echo $kolom['tanggal_lahir'] ?>">
-                                <small>masukan tanggal_lahir</small>
-                            </div>
-                            <div class="form-group">
-
                                 <label>Alamat</label>
-                                <input type="text" class="form-control" name="Alamat" required="" value="<?php echo $kolom['Alamat'] ?>">
-                                <small>masukan Alamat</small>
+                                <textarea class="form-control" name="Alamat" rows="3"><?= $data_mustahik->alamat; ?></textarea>
                             </div>
-                            <div class="form-group">
-
-                                <label>Telp</label>
-                                <input type="text" class="form-control" name="telp" required="" value="<?php echo $kolom['telp'] ?>">
-                                <small>masukan telp</small>
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label>Pekerjaan</label>
+                                    <?php
+                                    $query = $this->db->get('tb_kriteria_pekerjaan')->result_array();
+                                    ?>
+                                    <select class="custom-select" id="id_kriteria_pekerjaan" name="id_kriteria_pekerjaan" required>
+                                        <option value="">-Pilih-</option>
+                                        <?php foreach ($query as $row) { ?>
+                                            <option value="<?= $row['id_kriteria_pekerjaan'] ?>"><?= $row['nama_pekerjaan'] ?></option>
+                                        <?php }  ?>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Penghasilan</label>
+                                    <?php
+                                    $query = $this->db->get('tb_kriteria_penghasilan')->result_array();
+                                    ?>
+                                    <select class="custom-select" id="id_kriteria_penghasilan" name="id_kriteria_penghasilan" required>
+                                        <option value="">-Pilih-</option>
+                                        <?php foreach ($query as $row) { ?>
+                                            <option value="<?= $row['id_kriteria_penghasilan'] ?>"><?= $row['jumlah_penghasilan'] ?></option>
+                                        <?php }  ?>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Pengeluaran</label>
+                                    <?php
+                                    $query = $this->db->get('tb_kriteria_pengeluaran')->result_array();
+                                    ?>
+                                    <select class="custom-select" id="id_kriteria_pengeluaran" name="id_kriteria_pengeluaran" required>
+                                        <option value="">-Pilih-</option>
+                                        <?php foreach ($query as $row) { ?>
+                                            <option value="<?= $row['id_kriteria_pengeluaran'] ?>"><?= $row['jumlah_pengeluaran'] ?></option>
+                                        <?php }  ?>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Jumlah Tanggungan</label>
+                                    <?php
+                                    $query = $this->db->get('tb_kriteria_jumlah_tanggungan')->result_array();
+                                    ?>
+                                    <select class="custom-select" id="id_kriteria_jumlah_tanggungan" name="id_kriteria_jumlah_tanggungan" required>
+                                        <option value="">-Pilih-</option>
+                                        <?php foreach ($query as $row) { ?>
+                                            <option value="<?= $row['id_kriteria_jumlah_tanggungan'] ?>"><?= $row['jumlah_tanggungan'] ?></option>
+                                        <?php }  ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group col-2">
-                                <label>Jenis Kelamin</label>
-                                <!-- <input type="text" name="jenis_kelamin" required="" class="form-control"> -->
-                                <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                                    <option value="">-Pilih-</option>
-                                    <option value="laki-laki">Laki-Laki</option>
-                                    <option value="perempuan">Perempuan</option>
-                                </select>
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label>Label</label>
+                                    <select class="custom-select" id="label" name="label" required>
+                                        <option value="">-Pilih-</option>
+                                        <option value="layak">Layak</option>
+                                        <option value="tidak_layak">tidak layak</option>
+                                    </select>
+                                </div>
                             </div>
-
-
-
-
-
-                            <div class="form-group col-2">
-                                <label>Pekerjaan</label>
-                                <?php
-                                $query = $this->db->get('tb_kriteria_pekerjaan')->result_array();
-                                ?>
-                                <select class="form-control" id="id_kriteria_pekerjaan" name="id_kriteria_pekerjaan" required>
-                                    <option value="">-Pilih-</option>
-                                    <?php foreach ($query as $row) { ?>
-                                        <option value="<?= $row['id_kriteria_pekerjaan'] ?>"><?= $row['nama_pekerjaan'] ?></option>
-                                    <?php }  ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label>Penghasilan</label>
-                                <?php
-                                $query = $this->db->get('tb_kriteria_penghasilan')->result_array();
-                                ?>
-                                <select class="form-control" id="id_kriteria_penghasilan" name="id_kriteria_penghasilan" required>
-                                    <option value="">-Pilih-</option>
-                                    <?php foreach ($query as $row) { ?>
-                                        <option value="<?= $row['id_kriteria_penghasilan'] ?>"><?= $row['jumlah_penghasilan'] ?></option>
-                                    <?php }  ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label>Pengeluaran</label>
-                                <?php
-                                $query = $this->db->get('tb_kriteria_pengeluaran')->result_array();
-                                ?>
-                                <select class="form-control" id="id_kriteria_pengeluaran" name="id_kriteria_pengeluaran" required>
-                                    <option value="">-Pilih-</option>
-                                    <?php foreach ($query as $row) { ?>
-                                        <option value="<?= $row['id_kriteria_pengeluaran'] ?>"><?= $row['jumlah_pengeluaran'] ?></option>
-                                    <?php }  ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                                <label>Jumlah Tanggungan</label>
-                                <?php
-                                $query = $this->db->get('tb_kriteria_jumlah_tanggungan')->result_array();
-                                ?>
-                                <select class="form-control" id="id_kriteria_jumlah_tanggungan" name="id_kriteria_jumlah_tanggungan" required>
-                                    <option value="">-Pilih-</option>
-                                    <?php foreach ($query as $row) { ?>
-                                        <option value="<?= $row['id_kriteria_jumlah_tanggungan'] ?>"><?= $row['jumlah_tanggungan'] ?></option>
-                                    <?php }  ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-2">
-                            <label>label</label>
-                            <!-- <input type="text" name="jenis_kelamin" required="" class="form-control"> -->
-                            <select class="form-control" id="label" name="label" required>
-                                <option value="">-Pilih-</option>
-                                <option value="layak">Layak</option>
-                                <option value="tidak_layak">tidak layak</option>
-                            </select>
-                        </div>
 
                             <div class="form-group">
-
                                 <button type="submit" class="btn btn-primary">Simpan kriteria pekerjaan</button>
-
                             </div>
-
                         </div>
                     </form>
                 </div>
-
-
             </div>
-
         </div>
     </section>
     <!-- /.content -->

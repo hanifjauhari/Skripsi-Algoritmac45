@@ -53,28 +53,79 @@ class C_hasilklasifikasi extends CI_Controller
                     ($fields[3]->name." == ".$value->tanggungan) == $newRule) {
                     $idRule = $val->id_pohon_keputusan;
                     $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule) {
+                } elseif (($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule) {
                     $idRule = $val->id_pohon_keputusan;
                     $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule) {
+                } elseif (($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule) {
                     $idRule = $val->id_pohon_keputusan;
                     $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule) {
-                    $idRule = $val->id_pohon_keputusan;
-                    $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule) {
-                    $idRule = $val->id_pohon_keputusan;
-                    $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule) {
-                    $idRule = $val->id_pohon_keputusan;
-                    $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule) {
-                    $idRule = $val->id_pohon_keputusan;
-                    $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule) {
-                    $idRule = $val->id_pohon_keputusan;
-                    $decisionLabel = $val->keputusan;
-                } elseif (($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule) {
+                } elseif (($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    
+                    ($fields[2]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[2]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[2]->name." == ".$value->penghasilan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[3]->name." == ".$value->tanggungan) == $newRule ||
+                    ($fields[2]->name." == ".$value->penghasilan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[2]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[2]->name." == ".$value->penghasilan." AND ".$fields[3]->name." == ".$value->tanggungan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    
+                    ($fields[3]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[3]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[3]->name." == ".$value->penghasilan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[2]->name." == ".$value->pengeluaran) == $newRule ||
+                    ($fields[3]->name." == ".$value->penghasilan." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule ||
+                    ($fields[3]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[0]->name." == ".$value->pekerjaan." AND ".$fields[1]->name." == ".$value->penghasilan) == $newRule ||
+                    ($fields[3]->name." == ".$value->penghasilan." AND ".$fields[2]->name." == ".$value->pengeluaran." AND ".$fields[1]->name." == ".$value->penghasilan." AND ".$fields[0]->name." == ".$value->pekerjaan) == $newRule) {
                     $idRule = $val->id_pohon_keputusan;
                     $decisionLabel = $val->keputusan;
                 }
