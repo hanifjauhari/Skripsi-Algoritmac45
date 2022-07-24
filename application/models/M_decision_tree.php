@@ -23,16 +23,14 @@ class M_decision_tree extends CI_Model
         INNER JOIN tb_kriteria_penghasilan ON tb_data_mustahik.id_kriteria_penghasilan = tb_kriteria_penghasilan.id_kriteria_penghasilan
         INNER JOIN tb_kriteria_pengeluaran ON tb_data_mustahik.id_kriteria_pengeluaran = tb_kriteria_pengeluaran.id_kriteria_pengeluaran
         INNER JOIN tb_kriteria_jumlah_tanggungan ON tb_data_mustahik.id_kriteria_jumlah_tanggungan= tb_kriteria_jumlah_tanggungan.id_kriteria_jumlah_tanggungan
-        ORDER BY tb_data_mustahik.id_mustahik DESC
-        LIMIT 10";
+        LIMIT 20";
         
         return $this->db->query($query)->result();
     }
 
     public function getFieldTable()
     {
-        $sql = "SELECT tb_data_mustahik.nama as nama,
-        tb_kriteria_pekerjaan.nama_pekerjaan as nama_pekerjaan,
+        $sql = "SELECT tb_kriteria_pekerjaan.nama_pekerjaan as nama_pekerjaan,
         tb_kriteria_penghasilan.jumlah_penghasilan as jumlah_penghasilan,
         tb_kriteria_pengeluaran.jumlah_pengeluaran as jumlah_pengeluaran,
         tb_kriteria_jumlah_tanggungan.jumlah_tanggungan as jumlah_tanggungan 

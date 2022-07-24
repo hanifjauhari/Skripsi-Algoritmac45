@@ -5,6 +5,7 @@
             <h2 class="tittle">Uji Pohon Keputusan</h2>
             <div class="row">
                 <div class="col-md-12">
+                    <br>
                     <table class='table table-bordered table-hover'>
                         <thead class="table-dark">
                             <th>No</th>
@@ -13,6 +14,8 @@
                             <th>Penghasilan</th>
                             <th>Pengeluaran</th>
                             <th>Jumlah Tanggungan</th>
+                            <th>Keputusan Asli</th>
+                            <th>Keputusan Hasil</th>
                             <th>Id Rule</th>
                             <th>Ketepatan</th>
                         </thead>
@@ -20,6 +23,9 @@
                             <?= $result; ?>
                         </tbody>
                     </table>
+                    <br>
+                    <?= $accuracy; ?>
+                    <br>
                 </div>
             </div>
         </div>
