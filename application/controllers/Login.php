@@ -79,7 +79,7 @@ class Login extends CI_Controller
 
                 if ($kolom['level'] == "admin") {
                     // printf('berhasil');
-                    redirect('C_kriteria_pekerjaan');
+                    redirect('C_dashboard');
                 } else {
                     printf('gagal');
                     // redirect(base_url());

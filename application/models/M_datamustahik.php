@@ -164,4 +164,10 @@ class M_datamustahik extends CI_Model
         // kembali 
         redirect('C_datamustahik/index');
     }
+
+    public function countData() {
+        $sql = "SELECT COUNT(id_mustahik) allData, COUNT(IF(label='layak', 'layak', NULL)) dataWorth, COUNT(IF(label='tidak_layak', 'tidak_layak', NULL)) dataUnworth
+        FROM tb_data_mustahik";
+        return $this->db->query($sql)->row();
+    }
 }
