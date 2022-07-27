@@ -41,9 +41,19 @@ class C_hasilklasifikasi extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function print()
+    {
+        $dataRules = $this->M_decision_tree->test_rules();
+        $data['result'] = $this->findIdRules($dataRules);
+
+        $this->load->library('pdf');
+        $this->pdf->filename = "hasil-uji-coba-pohon-keputusan.pdf";
+        $this->pdf->load_view('admin/V_print_result_decision_tree', $data, 'A4', 'landscape');
+    }
+
     private function findIdRules($dataTest)
     {
-        $loadRules = $this->db->order_by('id_pohon_keputusan', "DESC")->get('tb_pohon_keputusan')->result();
+        $loadRules = $this->db->get('tb_pohon_keputusan')->result();
         $fields = $this->M_decision_tree->getFieldTable();
         $result = "";
 

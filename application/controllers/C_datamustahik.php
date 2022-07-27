@@ -1,6 +1,5 @@
 <?php
 
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class C_datamustahik extends CI_Controller
@@ -79,6 +78,16 @@ class C_datamustahik extends CI_Controller
         $this->load->view('admin/V_datamustahik_detail', $data);
         $this->load->view('template/footer');
     }
+
+    public function generate_pdf($id)
+    {
+        $data['data_mustahik'] = $this->M_datamustahik->getDataMustahik($id);
+        
+        $this->load->library('pdf');
+        $this->pdf->filename = "data-mustahik-".$data['data_mustahik']->nama.".pdf";
+        $this->pdf->load_view('admin/V_generatepdf', $data);
+    }
+
     function prosesupdate($id_mustahik)
     {
 

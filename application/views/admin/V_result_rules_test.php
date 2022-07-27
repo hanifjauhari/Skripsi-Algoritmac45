@@ -3,6 +3,7 @@
     <div class="typo-w3">
         <div class="container">
             <h2 class="tittle">Uji Pohon Keputusan</h2>
+            <a href="<?=base_url('C_hasilklasifikasi/print');?>" class="btn btn-success"><i class="fas fa-print"></i> Cetak Hasil</a>
             <div class="row">
                 <div class="col-md-12">
                     <br>

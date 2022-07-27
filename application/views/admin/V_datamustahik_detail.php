@@ -112,8 +112,8 @@
                             </div>
 
 
-                            <a href="<?php echo base_url('C_stockopname') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a>
-                            <a href="<?php echo base_url('C_stockopname/exportPDF/') ?>" class="btn btn-warning btn-sm">Cetak Laporan Opname</a>
+                            <a href="<?= base_url('C_datamustahik') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a>
+                            <a href="<?= base_url('C_datamustahik/generate_pdf/').$data_mustahik->id_mustahik ?>" class="btn btn-warning btn-sm">Cetak Laporan Opname</a>
 
                         </div>
                         </div>
