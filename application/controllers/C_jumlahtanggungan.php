@@ -11,7 +11,12 @@ class C_jumlahtanggungan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_jumlahtanggungan');
-        //Do your magic here
+        if (
+            $this->session->userdata('username') == null &&
+            $this->session->userdata('level') != "admin"
+        ) {
+            redirect('Main','refresh'); 
+        }
     }
 
     public function index()

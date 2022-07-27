@@ -144,7 +144,7 @@
 		<section data-scrollax-parent="true">
 			<div class="container">
 				<div class="section-title">
-					<h2>Cara Pengunaan</h2>
+					<h2>Cara Penggunaan</h2>
 					<div class="section-subtitle">Penggunaan aplikasi lembaga </div>
 					<span class="section-separator"></span>
 					<p>Berikut adalah tahap dalam menggunakan aplikasi pencarian lawan lembaga.</p>

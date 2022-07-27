@@ -63,6 +63,45 @@
             </div>
         </div>
     </div>
+    <br>
+    <div class="text-center"><h3>Cara Penggunaan</h3></div>
+    <center><div class="progress col-xl-1 mt-3" style="height: 3px;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+    </div></center>
+    <div class="text-center mt-3"><p>Berikut adalah tahap dalam menggunakan aplikasi pencarian lawan lembaga.</p></div>
+    <div class="row">
+        <div class="col-md-3 mx-auto">
+            <div class="bg-white border border-info rounded text-center">
+                <i class="fas fa-user-plus fa-3x text-info text-center mt-3" style="opacity: 0.3;"></i>
+                <div class="font-weight-bold mt-2">Penginputan Data Mustahik</div>
+                <div class="text-xs font-weight-normal text-dark mx-2 mt-2 mb-3">
+                    Lakukanlah penginputan mustahik ke dalam aplikasi
+                </div>
+            </div>
+        </div>
+        <span class="fas fa-long-arrow-alt-right fa-2x my-auto"></span>
+        <div class="col-md-3 mx-auto">
+            <div class="bg-white border border-info rounded text-center">
+                <i class="fas fa-spinner fa-3x text-info text-center mt-3" style="opacity: 0.3;"></i>
+                <div class="font-weight-bold mt-2">Proses Mining</div>
+                <div class="text-xs font-weight-normal text-dark mx-2 mt-2 mb-3">
+                    Setelah melakukan penginputan, lakukanlah proses mining
+                </div>
+            </div>
+        </div>
+        <span class="fas fa-long-arrow-alt-right fa-2x my-auto"></span>
+        <div class="col-md-3 mx-auto">
+            <div class="bg-white border border-info rounded text-center">
+                <i class="fas fa-handshake fa-3x text-info text-center mt-3" style="opacity: 0.3;"></i>
+                <div class="font-weight-bold mt-2">Hasil akhir</div>
+                <div class="text-xs font-weight-normal text-dark mx-2 mt-2 mb-3">
+                    Setelah proses mining selesai, maka akan menghasilkan suatu pohon keputusan
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </div>
 </div>
 </div>
 <!-- End of Content Wrapper -->

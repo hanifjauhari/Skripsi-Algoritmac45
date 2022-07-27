@@ -37,6 +37,24 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $("input:checkbox").on('click', function() {
+        var $box = $(this);
+
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("PUT", "<?= base_url('C_dashboard/change_status/') ?>" + $box.val(), true);
+        xmlHttp.send();
+
+        if ($box.is(":checked")) {
+            var group = "input:checkbox[id='" + $box.attr("id") + "']";
+            $(group).prop("checked", false);
+            $box.prop("checked", true);
+        } else {
+            $box.prop("checked", false);
+        }
+    });
+</script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?php echo base_url('assets1/') ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url('assets1/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

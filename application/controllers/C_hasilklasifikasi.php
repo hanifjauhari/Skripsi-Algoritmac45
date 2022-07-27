@@ -13,6 +13,13 @@ class C_hasilklasifikasi extends CI_Controller
         $this->true = 0;
         $this->false = 0;
         $this->load->model('M_decision_tree');
+
+        if (
+            $this->session->userdata('username') == null &&
+            $this->session->userdata('level') != "admin"
+        ) {
+            redirect('Main','refresh'); 
+        }
     }
 
     public function index()

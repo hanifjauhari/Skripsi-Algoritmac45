@@ -10,6 +10,13 @@ class C_pohonkeputusan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_decision_tree');
+
+        if (
+            $this->session->userdata('username') == null &&
+            $this->session->userdata('level') != "admin"
+        ) {
+            redirect('Main','refresh'); 
+        }
     }
 
     public function index()

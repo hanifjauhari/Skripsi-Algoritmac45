@@ -170,4 +170,12 @@ class M_datamustahik extends CI_Model
         FROM tb_data_mustahik";
         return $this->db->query($sql)->row();
     }
+
+    public function listAdmin($id)
+    {
+        $this->db->select('id_profile, username, level, status');
+        $this->db->from('tb_profile');
+        $this->db->where_not_in('id_profile', $id);
+        return $this->db->get()->result();
+    }
 }

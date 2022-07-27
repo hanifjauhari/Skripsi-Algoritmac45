@@ -128,7 +128,9 @@ class Login extends CI_Controller
     // logout
     function processlogout()
     {
-
+        $this->session->unset_userdata('id');
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
         $this->session->sess_destroy();
         redirect('Main', 'refresh');
     }

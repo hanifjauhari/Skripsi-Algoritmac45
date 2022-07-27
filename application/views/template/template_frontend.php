@@ -230,7 +230,7 @@
                     <?php if ($this->input->get('page') == "" || $this->input->get('page') == "starter") { ?>
                         <ul class="tabs-menu fl-wrap no-list-style">
                             <li class="current"><a href="#tab-1"><i class="fal fa-sign-in-alt"></i> Masuk</a></li>
-                            <li><a href="#tab-2"><i class="fal fa-user-plus"></i> Daftar</a></li>
+                            <!-- <li><a href="#tab-2"><i class="fal fa-user-plus"></i> Daftar</a></li> -->
                         </ul>
                     <?php } ?>
                     <!--tabs -->
@@ -238,16 +238,8 @@
                         <div class="tab">
                             <!--tab -->
                             <div id="tab-1" class="tab-content first-tab">
-
-                                <?php echo $this->session->flashdata('msg') ?>
-
+                                <?= $this->session->flashdata('message') ?>
                                 <div class="custom-form">
-
-
-
-
-
-
                                     <?php if ($this->input->get('page') == "forgot") { ?>
                                         <!-- Halaman permintaan lupa password -->
 
@@ -291,7 +283,7 @@
 
 
                                     <?php } else { ?>
-                                        <form action="<?php echo base_url('login/proseslogin') ?>" method="POST" name="registerform">
+                                        <form action="<?= base_url('C_auth/login') ?>" method="POST" name="registerform">
                                             <!-- Halaman permintaan login utama -->
                                             <?php
 
@@ -303,10 +295,10 @@
                                             }
                                             ?>
                                             <label>Username <span>*</span> </label>
-                                            <input name="username" type="text" onClick="this.select()" value="<?php echo $username ?>" required="">
+                                            <input name="username" type="text" onClick="this.select()" value="<?= $username ?>" required>
 
                                             <label>Password <span>*</span> </label>
-                                            <input name="password" type="password" name="password" onClick="this.select()" required="">
+                                            <input name="password" type="password" name="password" onClick="this.select()" required>
                                             <button type="submit" class="btn float-btn color2-bg"> Log In<i class="fas fa-caret-right"></i></button>
 
                                             <div class="clearfix"></div>
@@ -324,10 +316,10 @@
                             </div>
                             <!--tab end -->
                             <!--tab -->
-                            <div class="tab">
+                            <!-- <div class="tab">
                                 <div id="tab-2" class="tab-content">
                                     <div class="custom-form">
-                                        <form action="<?php echo base_url('register/prosesregister') ?>" method="post" name="registerform" class="main-register-form" id="main-register-form2">
+                                        <form action="<?= base_url('C_auth/register') ?>" method="POST">
                                             <label>Nama Lengkap <span>*</span> </label>
                                             <input name="name" type="text" onClick="this.select()" value="" placeholder="Masukkan nama lengkap">
 
@@ -357,7 +349,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!--tab end -->
                         </div>
                         <!--tabs end -->

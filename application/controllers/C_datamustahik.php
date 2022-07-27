@@ -10,7 +10,12 @@ class C_datamustahik extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_datamustahik');
-        //Do your magic here
+        if (
+            $this->session->userdata('username') == null &&
+            $this->session->userdata('level') != "admin"
+        ) {
+            redirect('Main','refresh'); 
+        }
     }
 
 

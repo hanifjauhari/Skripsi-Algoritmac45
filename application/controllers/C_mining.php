@@ -26,7 +26,12 @@ class C_mining extends CI_Controller
 
         $this->load->model('M_datamustahik');
         $this->load->model('M_mining');
-        //Do your magic here
+        if (
+            $this->session->userdata('username') == null &&
+            $this->session->userdata('level') != "admin"
+        ) {
+            redirect('Main','refresh'); 
+        }
     }
 
     public function index()
