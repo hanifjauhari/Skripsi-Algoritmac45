@@ -22,13 +22,13 @@ class C_hasilklasifikasi extends CI_Controller
         }
     }
 
-    public function index()
-    {
+    // public function index()
+    // {
 
-        $this->load->view('template/header');
-        $this->load->view('admin/V_hasilklasifikasi');
-        $this->load->view('template/footer');
-    }
+    //     $this->load->view('template/header');
+    //     $this->load->view('admin/V_hasilklasifikasi');
+    //     $this->load->view('template/footer');
+    // }
 
     public function test_rules()
     {
@@ -55,6 +55,7 @@ class C_hasilklasifikasi extends CI_Controller
     {
         $loadRules = $this->db->get('tb_pohon_keputusan')->result();
         $fields = $this->M_decision_tree->getFieldTable();
+        $resultSort = array();
         $result = "";
 
         foreach ($dataTest as $data => $value) {
@@ -156,18 +157,40 @@ class C_hasilklasifikasi extends CI_Controller
                 $this->false++;
             }
 
+            // mengisi variabel resultSort
+            array_push(
+                $resultSort,
+                array(
+                    "nama" => $value->nama,
+                    "pekerjaan" => $value->pekerjaan,
+                    "penghasilan" => $value->penghasilan,
+                    "pengeluaran" => $value->pengeluaran,
+                    "tanggungan" => $value->tanggungan,
+                    "label" => $value->label,
+                    "label_result" => $decisionLabel,
+                    "id_rule" => $idRule,
+                    "state" => $resultAccuracy
+                )
+            );
+        }
+        // mengurutkan data berdasarkan id rule
+        usort($resultSort, function($a, $b) {
+            return $a['id_rule'] - $b['id_rule'];
+        });
+        
+        foreach ($resultSort as $key => $value) {
             $result .= "
                 <tr>
                     <td>".$this->i++."</td>
-                    <td>".$value->nama."</td>
-                    <td>".$value->pekerjaan."</td>
-                    <td>".$value->penghasilan."</td>
-                    <td>".$value->pengeluaran."</td>
-                    <td>".$value->tanggungan."</td>
-                    <td>".$value->label."</td>
-                    <td>$decisionLabel</td>
-                    <td>$idRule</td>
-                    <td>". ($resultAccuracy=='benar'?"<b>".$resultAccuracy."</b>":$resultAccuracy) ."</td>
+                    <td>".$value['nama']."</td>
+                    <td>".$value['pekerjaan']."</td>
+                    <td>".$value['penghasilan']."</td>
+                    <td>".$value['pengeluaran']."</td>
+                    <td>".$value['tanggungan']."</td>
+                    <td>".$value['label']."</td>
+                    <td>".$value['label_result']."</td>
+                    <td>".$value['id_rule']."</td>
+                    <td>". ($value['state']=='benar'?"<b>".$value['state']."</b>":$value['state']) ."</td>
                 </tr>
             ";
         }

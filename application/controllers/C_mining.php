@@ -50,9 +50,12 @@ class C_mining extends CI_Controller
         $this->db->empty_table('tb_pohon_keputusan');
 
         $data['count_data'] = $this->M_mining->countData();
+
         $data['count_layak'] = $this->M_mining->countData("label = 'layak'");
         $data['count_tidak_layak'] = $this->M_mining->countData("label = 'tidak_layak'");
+
         $data['entropy_all'] = $this->count_entropy($data['count_tidak_layak']->result, $data['count_layak']->result);
+
         $data['algoritm_c45'] = $this->algoritm_c45($data['count_layak']->result, $data['count_tidak_layak']->result);
         $data['attribute_tree'] = $this->attributeTree();
         $data['attribute_tree2'] = $this->attributeTree2();
