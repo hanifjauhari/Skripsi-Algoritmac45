@@ -101,7 +101,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="<?php echo site_url('C_datamustahik/index') ?>">Data Simulasi</a>
+                        
                         <a class="collapse-item" href="<?php echo site_url('C_mining/index') ?>">Mining</a>
                         <a class="collapse-item" href="<?php echo site_url('C_pohonkeputusan/index') ?>">Pohon Keputusan</a>
                     </div>

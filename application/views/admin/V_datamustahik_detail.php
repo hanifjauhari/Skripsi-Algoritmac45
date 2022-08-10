@@ -100,20 +100,13 @@
                             <br>
 
                             <h3 class="text-primary"><i class="fas fa-paint-brush"></i> Mustahik </h3>
-                            <p class="text-muted">Berikut adalah stokopname yang dapat dilaporkan seperti detail disamping.</p>
+                            <p class="text-muted">Berikut adalah Data Detail Dari Mustahik</p>
                             <br>
-                            <div class="text-muted">
-                                <p class="text-sm">Tanggal Pembuatan
-                                    <b class="d-block"></b>
-                                </p>
-                                <p class="text-sm">Pembuat Laporan (Penanggung Jawab)
-                                    <b class="d-block"></b>
-                                </p>
-                            </div>
+                            
 
 
                             <a href="<?= base_url('C_datamustahik') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a>
-                            <a href="<?= base_url('C_datamustahik/generate_pdf/').$data_mustahik->id_mustahik ?>" class="btn btn-warning btn-sm">Cetak Laporan Opname</a>
+                            <a href="<?= base_url('C_datamustahik/generate_pdf/').$data_mustahik->id_mustahik ?>" class="btn btn-warning btn-sm">Cetak Detail Mustahik</a>
 
                         </div>
                         </div>

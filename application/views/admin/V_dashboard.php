@@ -64,11 +64,17 @@
         </div>
     </div>
     <br>
-    <div class="text-center"><h3>Cara Penggunaan</h3></div>
-    <center><div class="progress col-xl-1 mt-3" style="height: 3px;">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-    </div></center>
-    <div class="text-center mt-3"><p>Berikut adalah tahap dalam menggunakan aplikasi pencarian lawan lembaga.</p></div>
+    <div class="text-center">
+        <h3>Cara Penggunaan</h3>
+    </div>
+    <center>
+        <div class="progress col-xl-1 mt-3" style="height: 3px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </center>
+    <div class="text-center mt-3">
+        <p>Berikut adalah tahap dalam menggunakan aplikasi Metode Algoritma C4.5.</p>
+    </div>
     <div class="row">
         <div class="col-md-3 mx-auto">
             <div class="bg-white border border-info rounded text-center">
@@ -99,9 +105,9 @@
                 </div>
             </div>
         </div>
-        </div>
-        
     </div>
+
+</div>
 </div>
 </div>
 <!-- End of Content Wrapper -->
